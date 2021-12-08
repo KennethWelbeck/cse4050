@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <title>API Assignment</title>
+    </head>
+    <body>
+
+        <h1> API Assignment</h1>
+        <hr>
+
+        <p>API. Create a Web page that uses fetch to retrieve information in JSON format 
+            from a public API and displays it to the user. The Sunset and sunrise times API 
+            is an example of a public API, but there are many others. Place your code in a 
+            file named api_test.html. Add your file to your remote GitHub repository and 
+            include a link to it in your next progress report.</p>
+
+         
+        <div id = "sunset"></div>
+        <script>
+        fetch("https://api.sunrise-sunset.org/json?lat=34.1083&lng=-117.2898&formatted=0")
+        .then(response => response.json())
+        .then(data => {
+            const d = new Date(data.results.sunrise);
+            document.getElementById("sunset").innerHTML = "Sunrise today in San Bernardino is " + d.getHours() + ":" + d.getMinutes() + " AM";
+        });
+
+        </script>
+
+
+        <p>Done.</p>
+
+    </body>
+</html>
